@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; padding: 0; }
+        .container { padding: 50px 20px; }
+        .balance-card { background: #1a1a1a; padding: 30px; border-radius: 20px; margin-top: 20px; border: 1px solid #333; }
+        .amount { font-size: 45px; color: #f5b301; font-weight: bold; margin: 10px 0; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; }
+        .recharge { background: #f57224; color: #fff; }
+        .withdraw { background: #333; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Lazada Dashboard</h3>
+        <div class="balance-card">
+            <p>Account Balance</p>
+            <div class="amount">$3,462.18</div>
+        </div>
+        <div class="btn-group">
+            <button class="btn recharge">Recharge</button>
+            <button class="btn withdraw">Withdraw</button>
+        </div>
+    </div>
+</body>
+</html>
