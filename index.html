@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazada Shopping</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f7f7f7; padding-bottom: 70px; }
+
+        /* Header */
+        .header { background: #fff; padding: 10px; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+        .header img { height: 25px; }
+
+        /* Login */
+        #login-page { padding: 50px 20px; display: block; text-align: center; }
+        .login-box { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        .btn-login { width: 100%; padding: 12px; background: #f57224; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+        /* Dashboard Items */
+        #main-content { display: none; padding: 15px; }
+        .balance-card { background: linear-gradient(135deg, #f57224, #ff8a43); padding: 20px; border-radius: 15px; color: #fff; margin-bottom: 20px; position: relative; }
+        .balance-amount { font-size: 30px; font-weight: bold; margin: 5px 0; }
+        
+        .action-buttons { display: grid; grid-template-columns: repeat(3, 1-fr); gap: 10px; margin-bottom: 20px; display: flex; justify-content: space-between;}
+        .act-btn { background: #fff; padding: 15px 10px; border-radius: 12px; text-align: center; flex: 1; box-shadow: 0 2px 5px rgba(0,0,0,0.05); cursor: pointer; }
+        .act-btn i { font-size: 20px; color: #f57224; margin-bottom: 5px; display: block; }
+        .act-btn span { font-size: 12px; font-weight: 500; }
+
+        .list-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .list-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .list-item:last-child { border-bottom: none; }
+
+        /* Bottom Nav */
+        .navbar { position: fixed; bottom: 0; width: 100%; background: #fff; display: none; justify-content: space-around; padding: 10px 0; border-top: 1px solid #ddd; }
+        .nav-item { text-align: center; color: #888; cursor: pointer; font-size: 12px; }
+        .nav-item i { font-size: 20px; display: block; margin-bottom: 2px; }
+        .nav-item.active { color: #f57224; }
+
+        /* Hidden Sections */
+        .page-section { display: none; padding: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Lazada_Logo.svg/1200px-Lazada_Logo.svg.png" alt="Lazada">
+    </div>
+
+    <div id="login-page">
+        <div class="login-box">
+            <h2 style="margin-bottom: 20px; color: #f57224;">Sign In</h2>
+            <input type="text" id="phone" placeholder="Phone Number (0582745513)">
+            <input type="password" id="pass" placeholder="Password (123456)">
+            <button class="btn-login" onclick="handleLogin()">Login</button>
+            <p id="err" style="color: red; display: none; margin-top: 10px;">ভুল নম্বর বা পাসওয়ার্ড!</p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div id="home-section" class="tab-content">
+            <div class="balance-card">
+                <p>Hi, JMP_h0xwk8</p>
+                <p style="font-size: 12px; opacity: 0.9;">Account balance</p>
+                <div class="balance-amount">$3,462.18</div>
+                <p style="font-size: 12px;">Today's commission: $0.00</p>
+            </div>
+
+            <div class="action-buttons">
+                <div class="act-btn" onclick="alert('Recharge system coming soon!')">
+                    <i class="fa fa-wallet"></i><span>Recharge</span>
+                </div>
+                <div class="act-btn" onclick="alert('Withdraw process started!')">
+                    <i class="fa fa-money-bill-transfer"></i><span>Withdraw</span>
+                </div>
+                <div class="act-btn" onclick="alert('Invite link copied!')">
+                    <i class="fa fa-share-nodes"></i><span>Invite</span>
+                </div>
+            </div>
+
+            <div class="list-card">
+                <h4 style="margin-bottom: 10px;">Recent Commissions</h4>
+                <div class="list-item"><span>****7782</span><span style="color:#f57224; font-weight:bold;">$7,410.87</span></div>
+                <div class="list-item"><span>****6591</span><span style="color:#f57224; font-weight:bold;">$9,993.57</span></div>
+                <div class="list-item"><span>****7370</span><span style="color:#f57224; font-weight:bold;">$5,369.60</span></div>
+                <div class="list-item"><span>****6625</span><span style="color:#f57224; font-weight:bold;">$6,428.97</span></div>
+            </div>
+        </div>
+
+        <div id="order-section" class="page-section"><h2>Order History</h2><p>No orders yet.</p></div>
+        <div id="msg-section" class="page-section"><h2>Messages</h2><p>You have no new messages.</p></div>
+        <div id="profile-section" class="page-section"><h2>My Profile</h2><p>User ID: 982734</p></div>
+    </div>
+
+    <div class="navbar" id="nav">
+        <div class="nav-item active" onclick="showTab('home', this)"><i class="fa fa-home"></i>Home</div>
+        <div class="nav-item" onclick="showTab('order', this)"><i class="fa fa-history"></i>Orders</div>
+        <div class="nav-item" onclick="showTab('msg', this)"><i class="fa fa-comment-dots"></i>Chat</div>
+        <div class="nav-item" onclick="showTab('profile', this)"><i class="fa fa-user"></i>Account</div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const p = document.getElementById('phone').value;
+            const pass = document.getElementById('pass').value;
+            if(p === "0582745513" && pass === "123456") {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('nav').style.display = 'flex';
+            } else {
+                document.getElementById('err').style.display = 'block';
+            }
+        }
+
+        function showTab(tabName, el) {
+            // Hide all sections
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('order-section').style.display = 'none';
+            document.getElementById('msg-section').style.display = 'none';
+            document.getElementById('profile-section').style.display = 'none';
+            
+            // Show selected section
+            document.getElementById(tabName + '-section').style.display = 'block';
+            
+            // Update nav icons
+            const items = document.querySelectorAll('.nav-item');
+            items.forEach(item => item.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+</body>
+</html>
