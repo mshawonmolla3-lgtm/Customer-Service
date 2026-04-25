@@ -1,0 +1,15 @@
+// এই কোডটি কমিশনের লিস্টটি অটোমেটিক স্ক্রল বা আপডেট করবে
+const commissionList = document.querySelector('.list-card');
+setInterval(() => {
+    let randomID = "****" + Math.floor(1000 + Math.random() * 9000);
+    let randomAmount = "$" + (Math.random() * 5000).toFixed(2);
+    
+    let newItem = document.createElement('div');
+    newItem.className = 'list-item';
+    newItem.innerHTML = `<span>${randomID}</span><span style="color:#f57224; font-weight:bold;">${randomAmount}</span>`;
+    
+    commissionList.prepend(newItem); // নতুন কমিশন উপরে দেখাবে
+    if(commissionList.children.length > 6) {
+        commissionList.removeChild(commissionList.lastChild); // অনেক বেশি হলে নিচের গুলো মুছে দেবে
+    }
+}, 3000); // প্রতি ৩ সেকেন্ড পর পর নতুন কমিশন দেখাবে
